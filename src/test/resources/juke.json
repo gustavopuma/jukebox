@@ -1,0 +1,395 @@
+[
+  {
+    "id": "5ca94a8ac470d3e47cd4713c",
+    "model": "fusion",
+    "components": [
+      {
+        "name": "led_panel"
+      },
+      {
+        "name": "amplifier"
+      },
+      {
+        "name": "led_panel"
+      },
+      {
+        "name": "led_panel"
+      },
+      {
+        "name": "pcb"
+      }
+    ]
+  },
+  {
+    "id": "5ca94a8a77e20d15a7d16d0a",
+    "model": "angelina",
+    "components": [
+      {
+        "name": "pcb"
+      },
+      {
+        "name": "money_pcb"
+      },
+      {
+        "name": "touchscreen"
+      },
+      {
+        "name": "speaker"
+      },
+      {
+        "name": "speaker"
+      }
+    ]
+  },
+  {
+    "id": "5ca94a8a75c231bb18715112",
+    "model": "fusion",
+    "components": [
+      {
+        "name": "amplifier"
+      },
+      {
+        "name": "led_panel"
+      }
+    ]
+  },
+  {
+    "id": "5ca94a8a20905ffff6f0561c",
+    "model": "virtuo",
+    "components": [
+      {
+        "name": "led_panel"
+      },
+      {
+        "name": "money_receiver"
+      },
+      {
+        "name": "money_receiver"
+      }
+    ]
+  },
+  {
+    "id": "5ca94a8a3227b0a360f41078",
+    "model": "fusion",
+    "components": []
+  },
+  {
+    "id": "5ca94a8ac3f21c47a72473ec",
+    "model": "virtuo",
+    "components": [
+      {
+        "name": "led_panel"
+      },
+      {
+        "name": "pcb"
+      },
+      {
+        "name": "amplifier"
+      }
+    ]
+  },
+  {
+    "id": "5ca94a8ad82e60f2448d2fc9",
+    "model": "angelina",
+    "components": [
+      {
+        "name": "speaker"
+      },
+      {
+        "name": "touchscreen"
+      }
+    ]
+  },
+  {
+    "id": "5ca94a8ab592da6c6f2d562e",
+    "model": "fusion",
+    "components": [
+      {
+        "name": "camera"
+      },
+      {
+        "name": "amplifier"
+      }
+    ]
+  },
+  {
+    "id": "5ca94a8ac5f85b8a59f9e3c8",
+    "model": "virtuo",
+    "components": [
+      {
+        "name": "money_pcb"
+      },
+      {
+        "name": "camera"
+      },
+      {
+        "name": "camera"
+      }
+    ]
+  },
+  {
+    "id": "5ca94a8a13385f0c82aa9f2e",
+    "model": "virtuo",
+    "components": [
+      {
+        "name": "money_storage"
+      },
+      {
+        "name": "pcb"
+      },
+      {
+        "name": "touchscreen"
+      }
+    ]
+  },
+  {
+    "id": "5ca94a8aafb9d8c4e4fddf02",
+    "model": "angelina",
+    "components": []
+  },
+  {
+    "id": "5ca94a8a1639eb9ea30609f0",
+    "model": "virtuo",
+    "components": []
+  },
+  {
+    "id": "5ca94a8a4aeb7ab33a5e1047",
+    "model": "virtuo",
+    "components": [
+      {
+        "name": "money_pcb"
+      },
+      {
+        "name": "camera"
+      }
+    ]
+  },
+  {
+    "id": "5ca94a8ad2d584257d25ae50",
+    "model": "fusion",
+    "components": [
+      {
+        "name": "money_receiver"
+      },
+      {
+        "name": "money_receiver"
+      },
+      {
+        "name": "money_pcb"
+      },
+      {
+        "name": "amplifier"
+      },
+      {
+        "name": "led_panel"
+      }
+    ]
+  },
+  {
+    "id": "5ca94a8a8b58770bb38055a0",
+    "model": "angelina",
+    "components": [
+      {
+        "name": "money_storage"
+      },
+      {
+        "name": "pcb"
+      }
+    ]
+  },
+  {
+    "id": "5ca94a8afa2bc9887b28ce87",
+    "model": "angelina",
+    "components": [
+      {
+        "name": "amplifier"
+      }
+    ]
+  },
+  {
+    "id": "5ca94a8adb81479f94dda744",
+    "model": "fusion",
+    "components": [
+      {
+        "name": "led_matrix"
+      }
+    ]
+  },
+  {
+    "id": "5ca94a8a0735998f945f7276",
+    "model": "fusion",
+    "components": [
+      {
+        "name": "touchscreen"
+      },
+      {
+        "name": "camera"
+      }
+    ]
+  },
+  {
+    "id": "5ca94a8a59b8061f89644f43",
+    "model": "fusion",
+    "components": [
+      {
+        "name": "speaker"
+      },
+      {
+        "name": "amplifier"
+      },
+      {
+        "name": "touchscreen"
+      }
+    ]
+  },
+  {
+    "id": "5ca94a8acc046e7aa8040605",
+    "model": "angelina",
+    "components": [
+      {
+        "name": "money_receiver"
+      },
+      {
+        "name": "led_matrix"
+      },
+      {
+        "name": "speaker"
+      },
+      {
+        "name": "touchscreen"
+      },
+      {
+        "name": "money_pcb"
+      }
+    ]
+  },
+  {
+    "id": "5ca94a8af0853f96c44fa858",
+    "model": "virtuo",
+    "components": [
+      {
+        "name": "led_matrix"
+      },
+      {
+        "name": "touchscreen"
+      },
+      {
+        "name": "money_storage"
+      },
+      {
+        "name": "pcb"
+      },
+      {
+        "name": "money_receiver"
+      }
+    ]
+  },
+  {
+    "id": "5ca94a8a18f5576210fd012e",
+    "model": "virtuo",
+    "components": []
+  },
+  {
+    "id": "5ca94a8ae2b3a4fb2f0cfd78",
+    "model": "fusion",
+    "components": [
+      {
+        "name": "led_matrix"
+      },
+      {
+        "name": "money_pcb"
+      },
+      {
+        "name": "money_receiver"
+      },
+      {
+        "name": "led_matrix"
+      }
+    ]
+  },
+  {
+    "id": "5ca94a8acfdeb5e01e5bdbe8",
+    "model": "virtuo",
+    "components": [
+      {
+        "name": "money_storage"
+      },
+      {
+        "name": "money_pcb"
+      },
+      {
+        "name": "money_storage"
+      },
+      {
+        "name": "camera"
+      },
+      {
+        "name": "money_receiver"
+      }
+    ]
+  },
+  {
+    "id": "5ca94a8a2c516506b1f49500",
+    "model": "angelina",
+    "components": [
+      {
+        "name": "money_pcb"
+      },
+      {
+        "name": "led_matrix"
+      }
+    ]
+  },
+  {
+    "id": "5ca94a8af9985926172d6e8d",
+    "model": "angelina",
+    "components": [
+      {
+        "name": "speaker"
+      },
+      {
+        "name": "led_matrix"
+      },
+      {
+        "name": "money_pcb"
+      },
+      {
+        "name": "pcb"
+      }
+    ]
+  },
+  {
+    "id": "5ca94a8a1d1bc6d59afb9392",
+    "model": "virtuo",
+    "components": [
+      {
+        "name": "money_storage"
+      },
+      {
+        "name": "speaker"
+      }
+    ]
+  },
+  {
+    "id": "5ca94a8aa2330a0762019ac0",
+    "model": "angelina",
+    "components": [
+      {
+        "name": "money_storage"
+      },
+      {
+        "name": "amplifier"
+      }
+    ]
+  },
+  {
+    "id": "5ca94a8ab2c1285e53a89991",
+    "model": "fusion",
+    "components": []
+  },
+  {
+    "id": "5ca94a8a72473ac501b99033",
+    "model": "angelina",
+    "components": []
+  }
+]
