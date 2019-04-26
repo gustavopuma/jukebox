@@ -2,12 +2,14 @@ package com.jukebox.controller;
 
 import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.hasSize;
-import static org.mockito.Mockito.when;
+import static org.junit.Assert.assertEquals;
 import static org.mockito.ArgumentMatchers.eq;
+import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
-import static org.junit.Assert.fail;
+
+
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -18,10 +20,8 @@ import java.util.stream.Collectors;
 
 import org.hamcrest.Matchers;
 import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
@@ -30,17 +30,14 @@ import org.springframework.http.MediaType;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.test.web.servlet.MvcResult;
 
-import com.fasterxml.jackson.core.JsonParseException;
-import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.jukebox.JukeBoxApplicationMock;
 import com.jukebox.entity.JukeBox;
 import com.jukebox.entity.Setting;
 import com.jukebox.service.JukeBoxService;
 import com.jukebox.service.SettingService;
-
-import junit.framework.Assert;
 
 @RunWith(SpringRunner.class)
 @WebMvcTest(JukeBoxController.class)
@@ -86,15 +83,24 @@ public class JukeBoxControllerTest {
 	public void testErrorNoSettingId() throws Exception {
 		when(settingService.getSettingById(setting.getId())).thenReturn(Optional.of(setting));
 		when(jukeBoxService.getJukeBoxByModel(Optional.empty())).thenReturn(jukeList);
-		mvc.perform(get("/jukesBySetting").contentType(MediaType.APPLICATION_JSON)).andExpect(status().isBadRequest());
+		MvcResult result = mvc.perform(get("/api/jukesBySetting").contentType(MediaType.APPLICATION_JSON)).andExpect(status().isBadRequest()).andReturn();
+		assertEquals("Required String parameter 'settingId' is not present", result.getResponse().getErrorMessage());
 
 	}
+	@Test
+	public void testErrorNoLimit() throws Exception {
+		when(settingService.getSettingById(setting.getId())).thenReturn(Optional.of(setting));
+		when(jukeBoxService.getJukeBoxByModel(Optional.empty())).thenReturn(jukeList);
+		MvcResult result = mvc.perform(get("/api/jukesBySetting?settingId=" + setting.getId()+"&offset=1")).andExpect(status().isBadRequest()).andReturn();
+		assertEquals("Required int parameter 'limit or offset' is not present", result.getResponse().getErrorMessage());
+	}
+	
 
 	@Test
 	public void testWithNoModel() throws Exception {
 		when(settingService.getSettingById(eq(setting.getId()))).thenReturn(Optional.of(setting));
 		when(jukeBoxService.getJukeBoxByModel(Optional.empty())).thenReturn(jukeList);
-		mvc.perform(get("/jukesBySetting?settingId=" + setting.getId()).contentType(MediaType.APPLICATION_JSON))
+		mvc.perform(get("/api/jukesBySetting?settingId=" + setting.getId()).contentType(MediaType.APPLICATION_JSON))
 				.andExpect(status().isOk()).andExpect(jsonPath("$", hasSize(1)))
 				.andExpect(jsonPath("$[0].id", equalTo("5ca94a8acc046e7aa8040605")));
 
@@ -103,10 +109,9 @@ public class JukeBoxControllerTest {
 	@Test
 	public void testSettingNoRequiredPaginated() throws Exception {
 		setting.setRequire(new ArrayList<String>());
-		jukeList.stream().map(j->j.getId()).skip(10).limit(10).forEach(System.out::println);
 		when(settingService.getSettingById(eq(setting.getId()))).thenReturn(Optional.of(setting));
 		when(jukeBoxService.getJukeBoxByModel(Optional.empty())).thenReturn(jukeList);
-		mvc.perform(get("/jukesBySetting?settingId=" + setting.getId()+"&offset=1&limit=10").contentType(MediaType.APPLICATION_JSON))
+		mvc.perform(get("/api/jukesBySetting?settingId=" + setting.getId()+"&offset=1&limit=10").contentType(MediaType.APPLICATION_JSON))
 				.andExpect(status().isOk()).andExpect(jsonPath("$", hasSize(10)))
 				.andExpect(jsonPath("$[*].id").value(Matchers.containsInAnyOrder(jukeList.stream().map(j->j.getId()).skip(10).limit(10).toArray())));
 
@@ -114,12 +119,12 @@ public class JukeBoxControllerTest {
 
 	@Test
 	public void testSettingNoRequiredWithModel() throws Exception {
-		System.out.println("Testing no required with model");
+		
 		setting.setRequire(new ArrayList<String>());
 		when(settingService.getSettingById(eq(setting.getId()))).thenReturn(Optional.of(setting));
 		when(jukeBoxService.getJukeBoxByModel(Optional.of(jukeList.get(2).getModel()))).thenReturn(jukeList.stream()
 				.filter(j -> j.getModel().equals(jukeList.get(2).getModel())).collect(Collectors.toList()));
-		mvc.perform(get("/jukesBySetting?settingId=" + setting.getId() + "&model=" + jukeList.get(2).getModel())
+		mvc.perform(get("/api/jukesBySetting?settingId=" + setting.getId() + "&model=" + jukeList.get(2).getModel())
 				.contentType(MediaType.APPLICATION_JSON)).andExpect(status().isOk())
 				.andExpect(jsonPath("$", hasSize(10)))
 				.andExpect(jsonPath("$[*].id").value(Matchers.containsInAnyOrder("5ca94a8ac470d3e47cd4713c",
