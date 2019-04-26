@@ -15,7 +15,7 @@ docker run -p 80:8080 gpvldl/jukebox
 ```
 
 ## API Documentation
-to check API documentation after run the instructions to run the API, open the browser and TAP:
+to check API documentation after run the instructions to run the API, open the browser and tap:
 ```
 http://localhost/swagger-ui.html
 ```
